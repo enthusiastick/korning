@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @sales.each do |sale| %>
+    <% @sales.limited.each do |sale| %>
       <tr>
         <td><%= sale.sale_date %></td>
         <td><%= sale.sale_amount %></td>
