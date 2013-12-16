@@ -8,7 +8,7 @@ CSV.foreach(datafile, headers: true) do |row|
     sale.customer_and_account_no = row['customer_and_account_no']
     sale.product_name = row['product_name']
     sale.sale_date = DateTime.strptime(row['sale_date'], "%m/%d/%Y")
-    sale.sale_amount = row['sale_amount']
+    sale.sale_amount = row['sale_amount'].delete('$')
     sale.units_sold = row['units_sold']
     sale.invoice_no = row['invoice_no']
     sale.invoice_frequency = row['invoice_frequency']
