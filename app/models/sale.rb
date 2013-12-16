@@ -11,7 +11,7 @@ class Sale < ActiveRecord::Base
 
   def self.limited
     results = []
-    self.all.order_by(:sale_date).each do |sale|
+    self.all.order(:sale_date).each do |sale|
       results << sale if sale.last_thirteen_months?
     end
     results
