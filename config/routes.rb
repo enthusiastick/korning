@@ -6,6 +6,8 @@ Korning::Application.routes.draw do
 
   resources :customers, only: :index
 
+  resources :sales, only: :index
+
   # ...
 
 end
