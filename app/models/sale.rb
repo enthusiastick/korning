@@ -17,5 +17,19 @@ class Sale < ActiveRecord::Base
     results
   end
 
+  def invoice_amount
+    if self.invoice_frequency == 'Monthly'
+      invoice_amount_rough = self.sale_amount / 12
+      invoice_amount = "%.2f" % invoice_amount_rough
+    elsif self.invoice_frequency = ''
+      invoice_amount_rough = self.sale_amount / 4
+      invoice_amount = "%.2f" % invoice_amount_rough
+    elsif self.invoice_frequency = ''
+      invoice_amount = self.sale_amount
+    end
+    invoice_amount
+  end
+
+
 
 end

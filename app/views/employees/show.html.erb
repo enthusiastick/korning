@@ -1,4 +1,7 @@
-<h1>Sales</h1>
+<h1>Employee Profile</h1>
+
+<p><%= @employee.firstname %> <%= @employee.lastname %></p>
+<p><a href="mailto:<%= @employee.email %>"><%= @employee.email %></a><p>
 
 <table>
   <thead>
@@ -6,19 +9,17 @@
       <th>Date</th>
       <th>Total Amount</th>
       <th>Invoice No.</th>
-      <th>Invoice Frequency</th>
       <th>Invoice Amount</th>
       <th>Units Sold</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @sales.limited.each do |sale| %>
+    <% @employee.sales.order(:sale_amount).reverse_order.each do |sale| %>
       <tr>
         <td><%= sale.sale_date %></td>
         <td>$<%= sale.sale_amount %></td>
         <td><%= sale.invoice_no %></td>
-        <td><%= sale.invoice_frequency %></td>
         <td>$<%= sale.invoice_amount %></td>
         <td><%= sale.units_sold %></td>
       </tr>
