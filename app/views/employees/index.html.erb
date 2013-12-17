@@ -1,0 +1,19 @@
+<h1>Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><a href="/employees/<%= employee.id %>"><%= employee.firstname %> <%= employee.lastname %></a></td>
+        <td><a href="mailto:<%= employee.email %>"><%= employee.email %></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
