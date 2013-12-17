@@ -30,6 +30,11 @@ class Sale < ActiveRecord::Base
     invoice_amount
   end
 
+  def price_per_unit
+    ppu_rough = self.sale_amount / self.units_sold
+    price_per_unit = "%.2f" % ppu_rough
+  end
+
 
 
 end
